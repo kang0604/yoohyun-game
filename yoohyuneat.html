@@ -141,6 +141,25 @@
   button:active { transform: translate(4px,4px) rotate(-1deg); box-shadow: 0 0 0 #000; }
   button:focus-visible { outline: 3px dashed #ff2d2d; outline-offset: 3px; }
   .hint { font-size: 18px; color: #888; }
+
+  .credits-btn {
+    background: transparent; border: none; box-shadow: none;
+    color: #aaa; font-size: 18px; padding: 6px 8px; transform: none;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .credits-btn:hover { transform: none; color: #777; }
+
+  .creditsbox {
+    width: min(80vw, 320px);
+    border: 3px solid #000; border-radius: 4px;
+    box-shadow: 5px 5px 0 #000; background: #fff;
+    padding: 18px 16px; transform: rotate(.6deg);
+  }
+  .creditsbox p { font-size: 19px; line-height: 1.7; }
+  .creditsbox p b { font-size: 23px; }
+  .creditsbox a { color: #ff2d2d; text-decoration: underline; }
+  .ig-row { display: flex; align-items: center; justify-content: center; gap: 7px; }
+  .ig-icon { width: 20px; height: 20px; flex: none; }
 </style>
 </head>
 <body>
@@ -165,6 +184,24 @@
     <div class="btnrow"><button id="rankBtnTitle" class="ghost">랭킹 보기</button></div>
     <p class="hint">방향키 · 폰은 화면 끌기</p>
     <div class="mouth"><img id="mouthImg" alt=""></div>
+    <button id="creditsBtnTitle" class="credits-btn">📋 제작자 정보</button>
+  </div>
+
+  <div class="panel hidden" id="creditsPanel">
+    <h2 style="color:#000; text-shadow:3px 3px 0 #ffe400;">제작자</h2>
+    <div class="creditsbox">
+      <p><b>강현서</b></p>
+      <p>서울대학교 전기정보공학부 26학번</p>
+      <p class="ig-row">
+        <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#000" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4.6" stroke="#000" stroke-width="1.8"/>
+          <circle cx="17.6" cy="6.4" r="1.15" fill="#000"/>
+        </svg>
+        <a href="https://instagram.com/hskang64" target="_blank" rel="noopener">@hskang64</a>
+      </p>
+    </div>
+    <button id="creditsBackBtn" class="ghost">뒤로</button>
   </div>
 
   <div class="panel hidden" id="overPanel">
@@ -601,6 +638,15 @@
   });
   document.getElementById('rankBackBtn').addEventListener('click', ()=>{
     rankPanel.classList.add('hidden'); titlePanel.classList.remove('hidden');
+  });
+
+  // ── 제작자 정보
+  const creditsPanel = document.getElementById('creditsPanel');
+  document.getElementById('creditsBtnTitle').addEventListener('click', ()=>{
+    titlePanel.classList.add('hidden'); creditsPanel.classList.remove('hidden');
+  });
+  document.getElementById('creditsBackBtn').addEventListener('click', ()=>{
+    creditsPanel.classList.add('hidden'); titlePanel.classList.remove('hidden');
   });
 
   // ── 랭킹 등록
