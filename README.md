@@ -62,4 +62,5 @@
 
 ## 버그 신고 / 제안
 
-게임을 즐기셨나요? 의견이 있으면 알려주세요!
+게임에 대한 의견, 버그 신고, 기능 제안은  
+[GitHub Issues](https://github.com/kang0604/yoohyun-game/issues)에서 등록해주세요!
